@@ -1,0 +1,25 @@
+{{outlet}}
+<div class="row">
+  {{#each recipe in model}}
+    <div class="col s3">
+      {{#md-card title=recipe.title}}
+        {{#md-card-content}}
+          {{recipe.description}}
+        {{/md-card-content}}
+        {{#md-card-action}}
+          {{#link-to "recipe"}}Show{{/link-to}}
+        {{/md-card-action}}
+      {{/md-card}}  
+    </div>
+  {{/each}}
+  <div class="col s3">
+    {{#md-card title="Add New Book"}}
+      {{#md-card-content}}
+        {{recipe.description}}
+      {{/md-card-content}}
+      {{#md-card-action}}
+        {{#link-to "recipe"}}Show{{/link-to}}
+      {{/md-card-action}}
+    {{/md-card}}  
+  </div>
+</div>
