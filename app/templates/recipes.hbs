@@ -1,7 +1,7 @@
 {{outlet}}
 <div class="row">
   {{#each recipe in model}}
-    <div class="col s3">
+    <div class="col s4">
       {{#md-card title=recipe.title}}
         {{#md-card-content}}
           {{recipe.description}}
@@ -13,13 +13,30 @@
     </div>
   {{/each}}
   <div class="col s3">
-    {{#md-card title="Add New Book"}}
-      {{#md-card-content}}
-        {{recipe.description}}
-      {{/md-card-content}}
-      {{#md-card-action}}
-        {{#link-to "recipe"}}Show{{/link-to}}
-      {{/md-card-action}}
-    {{/md-card}}  
+    <div class="valign-wrapper">
+      <div class="center-align">
+        {{md-btn icon='mdi-content-add' action='openModal' buttonType='floating' class="btn-large"}}
+      </div>  
+    </div>
   </div>
 </div>
+
+
+{{#if modalIsOpen}}
+  {{#md-modal close="closeModal"}}
+    <div class="modal-content">
+      <h4>Hello Modal</h4>
+      <p>Oh hai there!</p>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat"
+          {{action 'agree'}}>
+        Agree
+      </a>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat"
+          {{action 'closeModal'}}>
+        Cancel
+      </a>
+    </div>
+  {{/md-modal}}
+{{/if}}
