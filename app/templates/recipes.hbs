@@ -9,14 +9,14 @@
         {{#md-card-action}}
           {{#link-to "recipe"}}Show{{/link-to}}
         {{/md-card-action}}
-      {{/md-card}}  
+      {{/md-card}}
     </div>
   {{/each}}
   <div class="col s3">
     <div class="valign-wrapper">
       <div class="center-align">
         {{md-btn icon='mdi-content-add' action='openModal' buttonType='floating' class="btn-large"}}
-      </div>  
+      </div>
     </div>
   </div>
 </div>
@@ -25,13 +25,14 @@
 {{#if modalIsOpen}}
   {{#md-modal close="closeModal"}}
     <div class="modal-content">
-      <h4>Hello Modal</h4>
-      <p>Oh hai there!</p>
+      <h4>Add New Recipe Book</h4>
+      {{input placeholder="Recipe book name goes here" value=bookTitle}}
+      {{textarea placeholder="Recipe book description goes here" class="materialize-textarea" value=bookDescription}}
     </div>
     <div class="modal-footer">
       <a class="modal-action modal-close waves-effect waves-green btn-flat"
-          {{action 'agree'}}>
-        Agree
+          {{action 'addBook'}}>
+        Add Recipe
       </a>
       <a class="modal-action modal-close waves-effect waves-green btn-flat"
           {{action 'closeModal'}}>
